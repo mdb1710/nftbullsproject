@@ -64,9 +64,9 @@ contract ChiTownBulls is ERC721, Pausable, Ownable, ERC721URIStorage, ERC721Enum
     //     MEMBER_PROVENANCE = provenanceHash;
     // }
 
-//     function _setBaseURI(string memory baseURI) internal virtual {
-//     _baseTokenURI = baseURI;
-//   }
+    function _setBaseURI(string memory baseURI) internal virtual {
+    _baseTokenURI = baseURI;
+  }
 
   function _baseURI() internal view override returns (string memory) {
     return _baseTokenURI;
@@ -126,7 +126,7 @@ contract ChiTownBulls is ERC721, Pausable, Ownable, ERC721URIStorage, ERC721Enum
     function mintBulls(uint numberOfTokens) public payable {
         require(saleIsActive, "Sale must be active to mint bulls");
         require(numberOfTokens > 0 && numberOfTokens <= maxBullPurchase, "Can only mint 20 tokens at a time");
-        require(totalSupply() + numberOfTokens <= MAX_BULlS, "Purchase would exceed max supply of Members");
+        require(totalSupply() + numberOfTokens <= MAX_BULLS, "Purchase would exceed max supply of Members");
         require(msg.value >= bullPrice * numberOfTokens, "Ether value sent is not correct");
         
         for(uint i = 0; i < numberOfTokens; i++) {
