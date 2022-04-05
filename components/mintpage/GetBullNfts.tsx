@@ -20,15 +20,15 @@ const GetBullNfts = (props: Props) => {
         console.log("new number is", newBullNumber)
     }
 
-    const mintBullNft = async(how_many_members: number) => {
+    const mintBullNft = async(how_many_bulls: number) => {
         if(bullContract != null) {
-            const price = bullPrice * how_many_members
+            const price = bullPrice * how_many_bulls
 
             // const gasAmount = await memberContract.mintPosseMember(how_many_members).estimateGas({ from: walletAddress, value: price })
             // console.log("estimated gas",gasAmount)
 
             bullContract.methods
-                .mintBullNft(how_many_members)
+                .mintBulls(how_many_bulls)
                 .send({from: walletAddress, value: price, type: "0x2"})
                 .on('transactionHash', function(hash: any){
                     console.log("transactionHash", hash)
