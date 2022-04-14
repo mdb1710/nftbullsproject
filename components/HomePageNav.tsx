@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-// import Logo from '../public/whitegenesislogo.jpeg'
+import Logo from '../public/NFTBullsLogo.jpeg'
 
 /*
 
@@ -21,8 +21,13 @@ const HomePageNav = () => {
             <nav className='flex items-center justify-between flex-wrap bg-white p-3'>
                 <div>
                     <Link href='/'>
-                        <a className='inline-flex items-center p-2 mr-4'>
-                            <span className='text-xl text-black font-bold uppercase tracking-wide'>NFTBULLS</span>
+                    <a className='inline-flex items-center p-2 mr-4 '>
+                              <Image 
+                                src={Logo}
+                                width={100}
+                                height={(100)}
+                                alt='Welcome To NFT Bulls'
+                                />
                         </a>
                     </Link>
                 </div>
